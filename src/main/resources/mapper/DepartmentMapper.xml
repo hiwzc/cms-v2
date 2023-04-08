@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.hiwzc.cms.mapper.DepartmentMapper">
+    <select id="searchDepartment" parameterType="DepartmentQO" resultType="DepartmentDTO">
+        SELECT ID,
+               CREATED_BY,
+               CREATED_DATE,
+               UPDATED_BY,
+               UPDATED_DATE,
+               DEPARTMENT_CODE,
+               DEPARTMENT_NAME
+          FROM DEPARTMENT_INFO
+         WHERE 1=1
+        <if test="departmentCode != null and departmentCode != ''">
+           AND DEPARTMENT_CODE = #{departmentCode, jdbcType=VARCHAR}
+        </if>
+         ORDER BY DEPARTMENT_CODE
+    </select>
+</mapper>
