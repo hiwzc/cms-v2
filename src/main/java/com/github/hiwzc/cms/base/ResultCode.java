@@ -2,6 +2,7 @@ package com.github.hiwzc.cms.base;
 
 public enum ResultCode {
     SUCCESS("0000", "ok"),
+    PARAM_ERROR("0001", "参数错误"),
     ERROR("9999", "SYSTEM ERROR");
 
     private final String code;

@@ -35,4 +35,15 @@ public class Result<T> {
         }
         return result;
     }
+
+    public static <T> Result<T> create(String code, String msg) {
+        Result<T> result = new Result<>();
+        result.setCode(code);
+        if (msg != null && msg.length() > 0) {
+            result.setMsg(msg);
+        } else {
+            result.setMsg(ResultCode.ERROR.getMsg());
+        }
+        return result;
+    }
 }
